@@ -7,7 +7,7 @@
 {% block icerik %}
     <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
-            <h1 class="page-header">Post Update </h1>
+            <h1 class="page-header">İçerik Güncelle </h1>
             <form action="{% url 'post-update' blog.slug %}" enctype="multipart/form-data" method="post">
                 {% csrf_token %}
                 {% include 'blog/include/form-include.html' %}

@@ -7,7 +7,7 @@
 {% block icerik %}
     <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
-            <h1 class="page-header">Post Create </h1>
+            <h1 class="page-header">İçerik Oluştur </h1>
             <form action="{% url 'post-create' %}" enctype="multipart/form-data" method="post">
                 {% csrf_token %}
                 {% include 'blog/include/form-include.html' %}
