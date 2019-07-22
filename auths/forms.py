@@ -70,14 +70,14 @@ class LoginForm(forms.Form):
 
 
 class UserProfileUpdateForm(forms.ModelForm):
-    sex = forms.ChoiceField(required=True, choices=UserProfile.SEX)
+    cinsiyet = forms.ChoiceField(required=True, choices=UserProfile.SEX)
     profile_photo = forms.ImageField(required=False)
     bio = forms.CharField(widget=forms.Textarea, required=False)
     dogum_tarihi = forms.DateField(input_formats=("%d.%m.%Y",),widget=forms.DateInput(format="%d.%m.%Y"),required=True,label='Dogum Tarihi')
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username','email','sex','dogum_tarihi', 'profile_photo', 'bio']
+        fields = ['first_name', 'last_name', 'username','email','cinsiyet','dogum_tarihi', 'profile_photo', 'bio']
 
     def __init__(self, *args, **kwargs):
         super(UserProfileUpdateForm, self).__init__(*args, **kwargs)

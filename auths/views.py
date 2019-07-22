@@ -80,7 +80,7 @@ def user_profile(request, username):
 
 
 def user_settings(request):
-    sex = request.user.userprofile.sex
+    cinsiyet = request.user.userprofile.cinsiyet
     bio = request.user.userprofile.bio
     profile_photo = request.user.userprofile.profile_photo
     dogum_tarihi = request.user.userprofile.dogum_tarihi
@@ -89,18 +89,18 @@ def user_settings(request):
     takipciler = takipci_ve_takip_edilen['takipciler']
     takip_edilenler = takipci_ve_takip_edilen['takip_edilenler']
 
-    initial = {'sex': sex, 'bio': bio, 'profile_photo': profile_photo, 'dogum_tarihi': dogum_tarihi}
+    initial = {'cinsiyet': cinsiyet, 'bio': bio, 'profile_photo': profile_photo, 'dogum_tarihi': dogum_tarihi}
     form = UserProfileUpdateForm(initial=initial, instance=request.user, data=request.POST or None,
                                  files=request.FILES or None)
     if request.method == "POST":
         if form.is_valid():
             user = form.save(commit=True)
             bio = form.cleaned_data.get('bio', None)
-            sex = form.cleaned_data.get('sex', None)
+            cinsiyet = form.cleaned_data.get('cinsiyet', None)
             profile_photo = form.cleaned_data.get('profile_photo', None)
             dogum_tarihi = form.cleaned_data.get('dogum_tarihi', None)
 
-            user.userprofile.sex = sex
+            user.userprofile.cinsiyet = cinsiyet
             user.userprofile.profile_photo = profile_photo
             user.userprofile.bio = bio
             user.userprofile.dogum_tarihi = dogum_tarihi

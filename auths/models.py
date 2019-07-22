@@ -10,7 +10,7 @@ class UserProfile(models.Model):
     bio = models.TextField(max_length=1000, verbose_name='Hakkımda', blank=True, null=True)
     profile_photo = models.ImageField(null=True, blank=True, verbose_name='Profil Fotograf')
     dogum_tarihi = models.DateField(null=True, blank=True, verbose_name='Dogum Tarihi')
-    sex = models.CharField(choices=SEX, blank=True, null=True, max_length=6, verbose_name='Cinsiyet')
+    cinsiyet = models.CharField(choices=SEX, blank=True, null=True, max_length=6, verbose_name='Cinsiyet')
 
     class Meta:
         verbose_name_plural = 'Kullanici Profilleri'
