@@ -8,7 +8,7 @@ class UserProfile(models.Model):
     SEX = ((None, 'Cinsiyet Seçiniz'), ('diger', 'DİGER'), ('erkek', 'ERKEK'), ('kadın', 'KADIN'))
     user = models.OneToOneField(User, null=True, blank=False, verbose_name='User')
     bio = models.TextField(max_length=1000, verbose_name='Hakkımda', blank=True, null=True)
-    profile_photo = models.ImageField(null=True, blank=True, verbose_name='Profil Fotograf')
+    profil_fotograf = models.ImageField(null=True, blank=True, verbose_name='Profil Fotograf')
     dogum_tarihi = models.DateField(null=True, blank=True, verbose_name='Dogum Tarihi')
     cinsiyet = models.CharField(choices=SEX, blank=True, null=True, max_length=6, verbose_name='Cinsiyet')
 
@@ -31,8 +31,8 @@ class UserProfile(models.Model):
         return url
 
     def get_profile_photo(self):
-        if self.profile_photo:
-            return self.profile_photo.url
+        if self.profil_fotograf:
+            return self.profil_fotograf.url
         return "/static/img/default.jpg"
 
     def __str__(self):

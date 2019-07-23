@@ -11,8 +11,7 @@ class IletisimForm(forms.Form):
     soyisim = forms.CharField(max_length=50, label='Soyisim', required=False)
     email = forms.EmailField(max_length=50, label='Email', required=True)
     email2 = forms.EmailField(max_length=50, label='Email Kontrol', required=True)
-    icerik = forms.CharField(max_length=1000, label='İçerik',
-                             required=True)
+    icerik = forms.CharField(max_length=1000, label='İçerik', required=True)
 
     def __init__(self, *args, **kwargs):
         super(IletisimForm, self).__init__(*args, **kwargs)

@@ -82,14 +82,14 @@ def user_profile(request, username):
 def user_settings(request):
     cinsiyet = request.user.userprofile.cinsiyet
     bio = request.user.userprofile.bio
-    profile_photo = request.user.userprofile.profile_photo
+    profil_fotograf = request.user.userprofile.profil_fotograf
     dogum_tarihi = request.user.userprofile.dogum_tarihi
 
     takipci_ve_takip_edilen = Fallowing.kullanici_takip_edilenler_ve_takipciler(request.user)
     takipciler = takipci_ve_takip_edilen['takipciler']
     takip_edilenler = takipci_ve_takip_edilen['takip_edilenler']
 
-    initial = {'cinsiyet': cinsiyet, 'bio': bio, 'profile_photo': profile_photo, 'dogum_tarihi': dogum_tarihi}
+    initial = {'cinsiyet': cinsiyet, 'bio': bio, 'profil_fotograf': profil_fotograf, 'dogum_tarihi': dogum_tarihi}
     form = UserProfileUpdateForm(initial=initial, instance=request.user, data=request.POST or None,
                                  files=request.FILES or None)
     if request.method == "POST":
@@ -97,11 +97,11 @@ def user_settings(request):
             user = form.save(commit=True)
             bio = form.cleaned_data.get('bio', None)
             cinsiyet = form.cleaned_data.get('cinsiyet', None)
-            profile_photo = form.cleaned_data.get('profile_photo', None)
+            profil_fotograf = form.cleaned_data.get('profil_fotograf', None)
             dogum_tarihi = form.cleaned_data.get('dogum_tarihi', None)
 
             user.userprofile.cinsiyet = cinsiyet
-            user.userprofile.profile_photo = profile_photo
+            user.userprofile.profile_photo = profil_fotograf
             user.userprofile.bio = bio
             user.userprofile.dogum_tarihi = dogum_tarihi
             user.userprofile.save()

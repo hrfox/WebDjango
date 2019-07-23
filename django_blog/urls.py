@@ -16,21 +16,18 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.conf import settings
-from blog.views import iletisim, deneme, deneme_ajax, deneme_ajax_2
+# from blog.views import iletisim, deneme, deneme_ajax, deneme_ajax_2
 
 
 from django.contrib import admin
 
 urlpatterns = [
     url('', include('blog.urls')),
-    url(r'^deneme/$', deneme, name='deneme'),
-    url(r'^deneme/ajax/$', deneme_ajax, name='deneme-ajax'),
-    url(r'^deneme/ajax-2/$', deneme_ajax_2, name='deneme-ajax-2'),
     url(r'^admin/', admin.site.urls),
     url(r'^posts/', include('blog.urls')),
     url(r'^auths/', include('auths.urls')),
     url(r'^fallowing/', include('fallowing.urls')),
-    url(r'^iletisim/', iletisim, name='iletisim')
+
 
 ]
 

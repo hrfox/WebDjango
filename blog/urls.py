@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import posts_list, post_update, post_create, post_delete, sanatcilar, post_detail, add_comment, \
+from .views import posts_list, post_update, post_create, post_delete, post_detail, add_comment, \
     add_or_remove_favorite, post_list_favorite_user, new_add_comment, get_child_comment_form
 
 urlpatterns = [
@@ -13,5 +13,5 @@ urlpatterns = [
     url(r'^new-add-comment/(?P<pk>[0-9]+)/(?P<model_type>[\w]+)/$', new_add_comment, name='new-add-comment'),
     url(r'^post-favorite-users/(?P<slug>[-\w]+)/$', post_list_favorite_user, name='post-list-favorite-user'),
     url(r'^add-remove-favorite/(?P<slug>[-\w]+)/$', add_or_remove_favorite, name='add-remove-favorite'),
-    url(r'^sanatcilar/(?P<sayi>[0-9a-z]+)/', sanatcilar)
+
 ]
